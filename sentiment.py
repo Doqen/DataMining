@@ -15,7 +15,7 @@ def analyze_sentiment(text):
     return analysis['compound']  # return the compound score
 
 # Define your directory
-directory = 'C:/Users/Marcos/Desktop/Uni/PI/DataMining/2023'
+directory = 'C:/Users/Marcos/Desktop/Uni/PI/DataMining/2014'
 
 # Iterate over each file in the directory
 for filename in os.listdir(directory):

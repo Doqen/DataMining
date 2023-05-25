@@ -13,7 +13,7 @@ import re
 acceptable_chars = string.ascii_letters + string.digits + string.punctuation + string.whitespace
 pattern = re.compile(f"[^{re.escape(acceptable_chars)}]")
 
-url = 'https://www.imdb.com/title/tt6266538/reviews/'
+url = 'https://www.imdb.com/title/tt0993846/reviews/'
 driver = webdriver.Chrome() # Or use webdriver.Chrome(), depending on your preference and which driver you have installed
 driver.get(url)
 
@@ -34,7 +34,7 @@ ratings = []
 review_count = 0
 
 # Load and process the reviews
-while review_count < 814:
+while review_count < 1793:
     try:
         # Click the "See More" button to expand reviews
         more_buttons = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, 'show-more__control')))
@@ -49,7 +49,7 @@ while review_count < 814:
 
         # Find the reviews and ratings
         for review_div in soup.find_all('div', class_='imdb-user-review'):
-            if review_count >= 814:
+            if review_count >= 1793:
                 break
 
             review_text_div = review_div.find('div', class_='text')
@@ -66,7 +66,7 @@ while review_count < 814:
                 review_count += 1
 
         # If we still need more reviews, click the "Load More" button
-        if review_count < 814:
+        if review_count < 1793:
             load_more_button = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'ipl-load-more__button')))
             load_more_button.click()
             time.sleep(2)
@@ -81,6 +81,5 @@ df = pd.DataFrame({
     'Rating': ratings
 })
 df.index.name = 'Index'
-df.to_excel('2019_vice_user_reviews.xlsx')
-
+df.to_excel('2014_the_wolf_of_wall_street_user_reviews.xlsx')
 driver.quit()

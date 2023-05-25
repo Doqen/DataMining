@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Define your directory
-directory = 'C:/Users/Marcos/Desktop/Uni/PI/DataMining/2023'
+directory = 'C:/Users/Marcos/Desktop/Uni/PI/DataMining/2014'
 
 
 # Prepare a dictionary to store the data
